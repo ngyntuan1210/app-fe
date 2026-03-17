@@ -1,0 +1,328 @@
+.navbarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.topBanner {
+  background: linear-gradient(90deg, #111 0%, #2d2d2d 50%, #111 100%);
+  color: #fff;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.topBannerVisible {
+  max-height: 40px;
+  opacity: 1;
+}
+
+.topBannerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.45rem 1rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.topBannerItem {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.topBannerItem i {
+  color: #f5c518; 
+  font-size: 0.8rem;
+}
+
+.topBannerDivider {
+  color: #555;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 576px) {
+  .topBannerDivider,
+  .topBannerItem:nth-child(3),
+  .topBannerItem:nth-child(5) {
+    display: none;
+  }
+
+  .topBannerItem:nth-child(1) {
+    font-size: 0.75rem;
+  }
+}
+
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.logo:hover {
+  opacity: 0.8;
+}
+
+.searchDesktop {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  flex: 1;
+  height: 44px;
+  padding: 0 1.1rem;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 0.93rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.searchInput:focus {
+  border-color: #111;
+}
+
+.searchBtn {
+  height: 44px;
+  padding: 0 1.1rem;
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.searchBtn:hover {
+  background: #333;
+}
+
+.rightIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.iconBtn:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.cartBtn {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e63946;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+.dropdownWrapper {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 0.4rem 0;
+  min-width: 180px;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 100;
+}
+
+.dropdownMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.65rem 1.2rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  margin: 0 0.3rem;
+  transition: background 0.15s;
+}
+.dropdownItem:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.mobileSearch {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+.mobileSearchOpen {
+  max-height: 80px;
+}
+
+.mobileSearchInner {
+  padding: 0.6rem 1rem;
+}
+
+.mobileSearchForm {
+  display: flex;
+  align-items: center;
+}
+
+.closeSearch {
+  background: none;
+  border: none;
+  padding: 0 0.5rem;
+  color: #999;
+  cursor: pointer;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.closeSearch:hover {
+  color: #333;
+}
+
+.mobileMenu {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+.mobileMenuOpen {
+  max-height: 400px;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.mobileNavItem {
+  border-bottom: 1px solid #f3f3f3;
+}
+.mobileNavItem:last-child {
+  border-bottom: none;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  color: #222;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.mobileNavLink:hover {
+  background: #fafafa;
+}
+
+@media (min-width: 992px) {
+  .searchToggle,
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navContainer {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+  }
+  .searchDesktop,
+  .dropdownWrapper {
+    display: none;
+  }
+  .rightIcons {
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  .iconBtn {
+    width: 38px;
+    height: 38px;
+  }
+  .navContainer {
+    padding: 0.6rem 0.75rem;
+  }
+}

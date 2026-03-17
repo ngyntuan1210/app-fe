@@ -1,0 +1,214 @@
+:root {
+  --surface: #fff;
+  --muted: #999;
+  --muted2: #777;
+  --border: #e0e0e0;
+  --bg-light: #f7f7f7;
+  --primary: #111;
+  --primary-hover: #333;
+  --danger: #e63946;
+  --success: #2f8d46;
+}
+
+.page {
+  padding: 1.5rem 0 4rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb a:hover {
+  color: var(--primary-hover);
+}
+.breadcrumb i {
+  font-size: 0.7rem;
+}
+.breadcrumb span {
+  color: #111;
+  font-weight: 500;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+.tag,
+.catTag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #555;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  width: fit-content;
+}
+
+.filterRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+.filterBtn {
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted2);
+  font-size: 0.83rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.filterBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.filterActive {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  background: var(--surface);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.cardImg {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-light);
+  overflow: hidden;
+}
+.cardImgEl {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card:hover .cardImgEl {
+  transform: scale(1.04);
+}
+.cardInfo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--danger);
+}
+.oldPrice {
+  font-size: 0.76rem;
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.badge,
+.hotBadge,
+.relatedBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.empty {
+  text-align: center;
+  padding: 3.5rem 0;
+  color: #ccc;
+}
+.empty i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.empty p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* reusable button group */
+.btnGroup {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 0.55rem 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}
+
+.btnOutline {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.btnDanger {
+  background: var(--danger);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1.25rem 0 3rem;
+  }
+}

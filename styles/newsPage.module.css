@@ -1,0 +1,221 @@
+.page {
+  composes: page from "./shared.module.css";
+  padding: 2rem 0 4rem;
+}
+
+.filterRow {
+  composes: filterRow from "./shared.module.css";
+  margin-bottom: 1.75rem;
+}
+
+.filterBtn {
+  composes: filterBtn from "./shared.module.css";
+  border: 1.5px solid var(--color-border);
+  color: var(--color-secondary);
+}
+.filterBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.filterActive {
+  composes: filterActive from "./shared.module.css";
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  text-decoration: none;
+  background: #fff;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.25s;
+}
+.featured:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.featuredImg {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.featuredImgEl {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.featured:hover .featuredImgEl {
+  transform: scale(1.03);
+}
+
+.featuredInfo {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.featuredTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.featuredExcerpt {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 0.25rem;
+  transition: gap 0.2s;
+}
+.featured:hover .readMore {
+  gap: 0.6rem;
+}
+
+.card {
+  composes: card from "./shared.module.css";
+  height: 100%;
+}
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.cardImg {
+  composes: cardImg from "./shared.module.css";
+}
+
+.cardImgEl {
+  composes: cardImgEl from "./shared.module.css";
+}
+
+.card:hover .cardImgEl {
+  transform: scale(1.04);
+}
+
+.cardInfo {
+  composes: cardInfo from "./shared.module.css";
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardExcerpt {
+  font-size: 0.82rem;
+  color: #777;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catTag {
+  composes: catTag from "./shared.module.css";
+}
+
+.hotBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e63946;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.meta {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.meta i {
+  font-size: 0.72rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 4rem 0;
+  color: #ccc;
+}
+.empty i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.empty p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 767.98px) {
+  .featured {
+    grid-template-columns: 1fr;
+  }
+  .featuredImg {
+    aspect-ratio: 16 / 9;
+  }
+  .featuredInfo {
+    padding: 1.25rem;
+  }
+  .featuredTitle {
+    font-size: 1.1rem;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .page {
+    padding: 1.25rem 0 3rem;
+  }
+  .filterRow {
+    gap: 0.4rem;
+  }
+  .filterBtn {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.85rem;
+  }
+}
