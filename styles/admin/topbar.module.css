@@ -1,0 +1,363 @@
+/* ═══════════════════════════════════════════════════════════
+   TopBar.module.css
+   Breakpoints:
+     mobile  — < 600px   (xs)
+     tablet  — 600–899px (sm)
+     desktop — ≥ 900px   (md)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CSS Variables ──────────────────────────────────────── */
+:root {
+  --topbar-bg:          #ffffff;
+  --topbar-border:      #e2e8f0;
+  --topbar-height:      56px;
+  --topbar-height-mob:  52px;
+  --text-primary:       #374151;
+  --text-dark:          #1f2937;
+  --text-muted:         #6b7280;
+  --text-placeholder:   #9ca3af;
+  --focus-ring:         rgba(99, 102, 241, 0.1);
+  --focus-border:       #6366f1;
+  --hover-bg:           #f8fafc;
+  --danger-color:       #ef4444;
+  --topbar-transition:  left 0.25s ease, width 0.25s ease;
+}
+
+/* ══════════════════════════════════════════════════════════
+   APP BAR
+   ══════════════════════════════════════════════════════════ */
+.appBar {
+  position: fixed !important;
+  top: 0;
+  background-color: var(--topbar-bg) !important;
+  border-bottom: 1px solid var(--topbar-border) !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+  transition: var(--topbar-transition) !important;
+  /* Sit behind sidebar overlay on mobile */
+  z-index: 1100 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   TOOLBAR
+   ══════════════════════════════════════════════════════════ */
+.toolbar {
+  min-height: var(--topbar-height) !important;
+  height: var(--topbar-height);
+  gap: 10px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HAMBURGER BUTTONS
+   ══════════════════════════════════════════════════════════ */
+.hamburgerBtn {
+  border: 1px solid var(--topbar-border) !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+  color: var(--text-primary) !important;
+  flex-shrink: 0;
+}
+.hamburgerBtn:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Show desktop toggle only on md+ */
+.hamburgerDesktop {
+  display: none !important;
+}
+.hamburgerMobile {
+  display: inline-flex !important;
+}
+@media (min-width: 900px) {
+  .hamburgerDesktop { display: inline-flex !important; }
+  .hamburgerMobile  { display: none !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SEARCH BOX
+   ══════════════════════════════════════════════════════════ */
+.searchBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--topbar-border);
+  border-radius: 8px;
+  padding: 4px 12px;
+  gap: 8px;
+  background-color: var(--topbar-bg);
+  transition: box-shadow 0.15s, border-color 0.15s, width 0.2s ease;
+  /* Mobile: take available space */
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.searchBox:focus-within {
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.searchIcon {
+  flex-shrink: 0;
+  color: var(--text-placeholder);
+}
+
+.searchInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.875rem !important;
+  color: var(--text-primary) !important;
+}
+.searchInput input {
+  padding: 0;
+  line-height: 1.5;
+}
+.searchInput input::placeholder {
+  color: var(--text-placeholder);
+}
+
+/* ⌘K badge — hidden on mobile, visible sm+ */
+.kbdBadge {
+  display: none;
+  align-items: center;
+  border: 1px solid var(--topbar-border);
+  border-radius: 5px;
+  padding: 1px 6px;
+  background-color: var(--hover-bg);
+  flex-shrink: 0;
+}
+.kbdText {
+  font-size: 0.7rem !important;
+  color: var(--text-muted) !important;
+  font-family: monospace !important;
+  line-height: 1.4 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SPACER
+   ══════════════════════════════════════════════════════════ */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CIRCLE ICON BUTTONS (moon, bell)
+   ══════════════════════════════════════════════════════════ */
+.circleBtn {
+  border: 1px solid var(--topbar-border) !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0;
+  color: var(--text-primary) !important;
+  transition: background 0.12s !important;
+}
+.circleBtn:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Hide moon on small mobile to save space */
+.circleBtnHideXs {
+  display: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   USER TRIGGER
+   ══════════════════════════════════════════════════════════ */
+.userTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 2px 6px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  /* Prevent text from wrapping */
+  white-space: nowrap;
+}
+.userTrigger:hover {
+  background-color: var(--hover-bg);
+}
+
+.userAvatar {
+  width: 34px !important;
+  height: 34px !important;
+  border: 2px solid var(--topbar-border) !important;
+  flex-shrink: 0;
+}
+
+/* Name hidden on mobile */
+.userName {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: var(--text-dark) !important;
+  display: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DROPDOWN MENU
+   ══════════════════════════════════════════════════════════ */
+.menuPaper {
+  margin-top: 8px !important;
+  min-width: 180px !important;
+  border: 1px solid var(--topbar-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+  overflow: visible !important;
+}
+
+.menuHeader {
+  padding: 12px 16px;
+}
+.menuHeaderName {
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  color: var(--text-dark) !important;
+}
+.menuHeaderEmail {
+  font-size: 0.75rem !important;
+  color: var(--text-muted) !important;
+}
+
+.menuDivider {
+  border-color: #f1f5f9 !important;
+}
+
+.menuItem {
+  font-size: 0.875rem !important;
+  gap: 10px !important;
+  padding: 9px 16px !important;
+  color: var(--text-primary) !important;
+}
+.menuItemDanger {
+  color: var(--danger-color) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (600px – 899px)
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 600px) and (max-width: 899px) {
+  .toolbar {
+    gap: 10px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Search: fixed width on tablet */
+  .searchBox {
+    flex: 0 0 260px;
+    max-width: 260px;
+  }
+
+  /* Show ⌘K badge */
+  .kbdBadge {
+    display: flex;
+  }
+
+  /* Show moon icon on tablet */
+  .circleBtnHideXs {
+    display: inline-flex !important;
+  }
+
+  /* Show username on tablet */
+  .userName {
+    display: block !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE — DESKTOP (≥ 900px)
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 900px) {
+  .toolbar {
+    gap: 12px;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* Fixed width search bar */
+  .searchBox {
+    flex: 0 0 320px;
+    max-width: 320px;
+  }
+
+  /* Show all optional elements */
+  .kbdBadge          { display: flex; }
+  .circleBtnHideXs   { display: inline-flex !important; }
+  .userName          { display: block !important; }
+
+  .userAvatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE (< 600px)
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 599px) {
+  .toolbar {
+    min-height: var(--topbar-height-mob) !important;
+    height: var(--topbar-height-mob);
+    gap: 8px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Search flexible on mobile */
+  .searchBox {
+    flex: 1 1 auto;
+    padding: 3px 10px;
+    border-radius: 8px;
+  }
+
+  /* Smaller icon buttons */
+  .circleBtn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Smaller avatar */
+  .userAvatar {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* No chevron label on mobile */
+  .userTrigger {
+    gap: 4px;
+    padding: 2px 2px;
+  }
+
+  /* Bigger dropdown on mobile for easier tapping */
+  .menuPaper {
+    min-width: 200px !important;
+  }
+
+  .menuItem {
+    padding: 11px 16px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   TOUCH — disable hover flicker on touch devices
+   ══════════════════════════════════════════════════════════ */
+@media (hover: none) {
+  .hamburgerBtn:hover,
+  .circleBtn:hover,
+  .userTrigger:hover {
+    background-color: transparent !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   iOS SAFE AREA — notch/home indicator support
+   ══════════════════════════════════════════════════════════ */
+@supports (padding: max(0px)) {
+  .appBar {
+    padding-top: env(safe-area-inset-top);
+  }
+}
